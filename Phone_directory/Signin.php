@@ -30,8 +30,8 @@
 
 <body>
 <?php
+	session_start();
 
-session_start();
 
 $nameErr = $passErr =$Error ="";
 $name=$pass="";
@@ -84,7 +84,12 @@ $result=mysqli_query($dbc,"select * from user_data where name='$name'and passwor
 
 $c=mysqli_fetch_array($result);
 if(Isset($c)){
-	echo'success';
+
+	$_SESSION["name"]=$name;
+	
+	
+	
+header("Location: http://localhost/Phone_directory/user_panel.php");
 mysqli_close($dbc);
 	
 }

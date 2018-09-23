@@ -122,7 +122,7 @@ header("Location: http://localhost/Phone_directory/Signin.php");
  <pre>Password:   <input type="password" name="Pass" value="<?php echo $pass;?>"></input> </pre> <span class="error">* <?php echo $passErr;?></span>
  
  <pre>PhoneNo:    <input type="text" name="phoneno" value="<?php echo $phoneno;?>"></input> <span class="error">* <?php echo $phErr;?></span> </pre>
-<pre>                          <input type="submit" value="register" class="btn btn-primary"></pre>
+<pre>                          <input type="submit" value="Register" class="btn btn-primary"></pre>
 
 </form>
 </div>
