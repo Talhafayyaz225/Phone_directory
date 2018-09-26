@@ -53,13 +53,73 @@ echo'
 </nav>
 
 
+
 ';
 
-echo 'heloo '.$_SESSION["Id"];
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database="phone_book";
 
+$dbc=new mysqli($servername, $username, $password,$database);
 
-
+if ($dbc->connect_error) {
+    die("Connection failed: " . $dbc->connect_error);
+} 
+else{
 }
+
+
+$id=$_SESSION["Id"];
+
+$result=mysqli_query($dbc,"select count(contact_id) as total from contacts where id=$id");
+
+
+$value=mysqli_fetch_assoc($result);
+$contacts=$value['total'];
+
+
+
+$result1=mysqli_query($dbc,"select * from contacts where id=$id");
+
+
+echo "<div style='position: relative;
+ margin: auto;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  
+  width: 1000px;
+  height: 100px;'> ";
+  echo '<b>Total number of contacts   '.$contacts.'</b>';
+  
+
+echo "<table border =\"1\" style='border-collapse: collapse;width:100%'>";
+echo '<tr> 
+
+<th id="Id"> Id</th>
+<th id="name">Name</th>
+   <th id="email">Number</th>
+    <th id="phone">Email</th>
+    
+  </tr>';
+  
+  
+while($row = mysqli_fetch_array($result1))
+{
+echo "<tr>";
+echo "<td>" . $row['contact_id'] . "</td>";
+echo "<td>" . $row['name'] . "</td>";
+echo "<td>" . $row['number'] . "</td>";
+echo "<td>" . $row['Email'] . "</td>";
+
+echo "</tr>";
+}
+echo "</table>";
+echo '</div>';
+}
+
+
 else
 {
 	echo 'User authentication required';

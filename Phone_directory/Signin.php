@@ -73,11 +73,11 @@ if ($dbc->connect_error) {
     die("Connection failed: " . $dbc->connect_error);
 } 
 else{
-echo 'connection successful';
+//echo 'connection successful';
 }
 
 if(Isset($_POST)){
-if(tag==TRUE){
+if($tag==TRUE){
 
 
 $result=mysqli_query($dbc,"select id from user_data where name='$name'and password1='$pass' limit 1");

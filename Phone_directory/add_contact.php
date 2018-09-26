@@ -92,7 +92,7 @@ if ($dbc->connect_error) {
 if(Isset($_POST)){
 if($tag==TRUE){
 if(mysqli_query($dbc,"INSERT INTO contacts (name,number,Email,id) 
-VALUES ('$name','$Email',$phoneno,$id)")==TRUE){
+VALUES ('$name',$phoneno,'$Email',$id)")==TRUE){
 
 
 
