@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2018 at 10:40 AM
+-- Generation Time: Sep 30, 2018 at 12:31 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -41,7 +41,31 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`name`, `number`, `Email`, `id`, `contact_id`) VALUES
-('talha', 0, '3245600484', 10, 1);
+('talha', 0, '3245600484', 10, 1),
+('absar', 2147483647, 'absar@gmail.com', 10, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shared`
+--
+
+CREATE TABLE `shared` (
+  `shared_id` int(11) DEFAULT NULL,
+  `shared_name` varchar(20) DEFAULT NULL,
+  `shared_number` varchar(11) DEFAULT NULL,
+  `shared_email` varchar(40) DEFAULT NULL,
+  `share_with_id` int(11) DEFAULT NULL,
+  `share_with_name` varchar(20) DEFAULT NULL,
+  `shared_by_name` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shared`
+--
+
+INSERT INTO `shared` (`shared_id`, `shared_name`, `shared_number`, `shared_email`, `share_with_id`, `share_with_name`, `shared_by_name`) VALUES
+(1, 'talha', '0', '3245600484', 2, 'absar', 'talha');
 
 -- --------------------------------------------------------
 
@@ -107,7 +131,7 @@ ALTER TABLE `user_data`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_data`

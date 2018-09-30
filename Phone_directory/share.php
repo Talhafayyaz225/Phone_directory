@@ -100,26 +100,29 @@ echo '<tr>
 <th id="Id"> Id</th>
 <th id="name">Name</th>
    <th id="phone">Number</th>
-    <th id="email">Email</th>
-        <th id="Share">Share</th>
+
+        <th id="Share">Share with</th>
 
   </tr>';
   
   
 while($row = mysqli_fetch_array($result1))
-{
-	
+{ //shared contact data
+	$id=$_GET['id'];
+	$name=$_GET['name'];
+	$number=$_GET['number'];
+	$email=$_GET['email'];
+	//sharing with
 $c_id=$row['contact_id']; 
  $c_name=$row['name'] ;
- $c_number=$row['number']; 
- $c_email=$row['Email'];
-	
+ 	
 echo "<tr>";
 echo "<td>" . $row['contact_id'] . "</td>";
 echo "<td>" . $row['name'] . "</td>";
 echo "<td>" . $row['number'] . "</td>";
-echo "<td>" . $row['Email'] . "</td>";
-$url="http://localhost/Phone_directory/share.php?id=$c_id&name=$c_name&number=$c_number&email=$c_email"; 
+
+//sending data
+$url="http://localhost/Phone_directory/shared.php?id=$id&name=$name&number=$number&email=$email&s_id=$c_id&s_name=$c_name"; 
 
 echo "<td> <a href='$url'>Click here</a>  </td>";
 
